@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link href="https://unpkg.com/@fortawesome/fontawesome-free@6.1.1/css/all.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-wrapper">
+            <div class="search-bar-wrapper">
+                <form class="input-wrapper" id="city-search">
+                    <input type="text" placeholder="Enter city..." class="search-input class" id="city-input" />
+                    <button class="location-button"><i class="fa-solid fa-location-arrow"></i></button>
+                    <input type="submit" value="Search" class="button" />
+                </form>
+                <div class="toggle">
+                    <div class="cel-select active text">°C</div>
+                    <div class="fah-select text">°F</div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="current-temp-column">
+                    <div class="current-temp"><span class="temp-large">99</span>°</div>
+                    <div class="icon"><img src="img/partly-cloudy.png" class="current-weather-icon"></div>
+                </div>
+                <div class="current-weather-column">
+                    <div>
+                        <h1>Morgantown</h1>
+                        <ul>
+                            <li>Last updated: <span class="day">Friday</span>
+                                <span class="hours"> 11</span>:<span class="minutes">38</span>
+                            </li>
+                            <li class="description">Partly cloudy</li>
+                            <li>Humidity: <span class="humidity">99</span>%</li>
+                            <li>Wind: <span class="wind">99</span> mph</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer"><a href="#" class="github-link">Open-source code</a><span>, by Tara Cook </span>
+            <div><a href="https://www.flaticon.com/free-icons/weather" target="_blank" title="weather icons">Weather
+                    icons created
+                    by iconixar - Flaticon</a></div>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
