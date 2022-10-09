@@ -11,6 +11,7 @@ body {
     background-color: #FAF8EB;
 }
 
+
 .search-bar-wrapper { 
     display: flex;
     width: 100%;
@@ -132,4 +133,10 @@ li:first-letter {
     font-size: 10px;
     margin-top: 10px;
     text-align: center;
+}
+
+.after-dark {
+    border-color: #558398;
+    background-color: #1C607C;
+    color: white;
 }

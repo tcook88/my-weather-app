@@ -41,10 +41,22 @@ function showTemp(response) {
     currentIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
-    let city = "New York";
+function search(city) {
     let unit = "imperial";
     let apiKey = "281450ec88936f4fa8ee9864682b49a0";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
-
     axios.get(apiUrl).then(showTemp);
+}
+
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        let cityInput = document.querySelector("#city-input");
+        search(cityInput.value);
+    }
+
+    
+
+
+    let form = document.querySelector("#city-search");
+    form.addEventListener("submit", handleSubmit)
