@@ -22,21 +22,23 @@ function formatDate(timestamp) {
     return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
-
 function showTemp(response) {
-    console.log(response.data);
     let currentTemp = document.querySelector("#current-temperature");
     let city = document.querySelector("#city");
     let description = document.querySelector("#description");
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let currentTime = document.querySelector("#date");
+    let currentIcon = document.querySelector("#current-icon");
+
     currentTemp.innerHTML = Math.round(response.data.main.temp);
     city.innerHTML = response.data.name;
     description.innerHTML = response.data.weather[0].description;
     humidity.innerHTML = response.data.main.humidity;
     wind.innerHTML = Math.round(response.data.wind.speed);
     currentTime.innerHTML = formatDate(response.data.dt * 1000);
+    currentIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+    currentIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
     let city = "New York";
