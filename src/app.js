@@ -30,6 +30,8 @@ function showTemp(response) {
     let wind = document.querySelector("#wind");
     let currentTime = document.querySelector("#date");
     let currentIcon = document.querySelector("#current-icon");
+    let currentHigh = document.querySelector("#current-high");
+    let currentLow = document.querySelector("#current-low");
 
     currentTemp.innerHTML = Math.round(response.data.main.temp);
     city.innerHTML = response.data.name;
@@ -39,6 +41,8 @@ function showTemp(response) {
     currentTime.innerHTML = formatDate(response.data.dt * 1000);
     currentIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
     currentIcon.setAttribute("alt", response.data.weather[0].description);
+    currentHigh.innerHTML = Math.round(response.data.main.temp_max);
+    currentLow.innerHTML = Math.round(response.data.main.temp_min);
 }
 
 function search(city) {
@@ -55,8 +59,48 @@ function search(city) {
         search(cityInput.value);
     }
 
-    
-
-
     let form = document.querySelector("#city-search");
     form.addEventListener("submit", handleSubmit)
+
+function showLocationTemperature(response) {
+    let currentTemp = document.querySelector("#current-temperature");
+    let city = document.querySelector("#city");
+    let description = document.querySelector("#description");
+    let humidity = document.querySelector("#humidity");
+    let wind = document.querySelector("#wind");
+    let currentTime = document.querySelector("#date");
+    let currentIcon = document.querySelector("#current-icon");
+    let currentHigh = document.querySelector("#current-high");
+    let currentLow = document.querySelector("#current-low");
+
+    currentTemp.innerHTML = Math.round(response.data.main.temp);
+    city.innerHTML = response.data.name;
+    description.innerHTML = response.data.weather[0].description;
+    humidity.innerHTML = response.data.main.humidity;
+    wind.innerHTML = Math.round(response.data.wind.speed);
+    currentTime.innerHTML = formatDate(response.data.dt * 1000);
+    currentIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+    currentIcon.setAttribute("alt", response.data.weather[0].description);
+    currentHigh.innerHTML = Math.round(response.data.main.temp_max);
+    currentLow.innerHTML = Math.round(response.data.main.temp_min);
+}
+
+
+function showLocation(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    console.log('position', position);
+    let unit = "imperial";
+    let apiKey = "281450ec88936f4fa8ee9864682b49a0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showLocationTemperature);
+}
+
+function getLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showLocation);
+}
+
+
+    let locationButton = document.querySelector("#location-btn");
+    locationButton.addEventListener("click", getLocation);
