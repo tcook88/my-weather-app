@@ -22,6 +22,27 @@ function formatDate(timestamp) {
     return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = "";
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    days.forEach(function(day){ 
+        forecastHTML = 
+    forecastHTML + `
+    <div class="col-daily">
+                        <div class="day">${day}</div>
+                        <div class="daily-icon">🌤</div>
+                        <div class="weather"><span class="high">70°</span> <span class="low">54°</span></div>
+                    </div>
+                    `;
+    });
+    
+ 
+   forecastElement.innerHTML = forecastHTML;
+}
+
+
 function showTemp(response) {
     let currentTemp = document.querySelector("#current-temperature");
     let city = document.querySelector("#city");
@@ -78,7 +99,6 @@ function showTemp(response) {
         currentIcon.setAttribute("src", "img/rain.png")
     }
 
-    console.log(response.data);
 }
 
 function search(city) {
@@ -204,3 +224,6 @@ function getLocation(event) {
 
     let fahrenheitLink = document.querySelector("#fahrenheit-link");
     fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+    search("New York");
+    displayForecast();

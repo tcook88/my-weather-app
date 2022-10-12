@@ -138,8 +138,34 @@ li:first-letter {
     text-align: center;
 }
 
-.after-dark {
-    border-color: #558398;
-    background-color: #1C607C;
-    color: white;
+
+
+.forecast-row { 
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+    color: #333;
 }
+
+.col-daily { 
+    border-right: 2px solid #bcbcbc;
+    text-align: center;
+    
+}
+
+.col-daily:last-child { 
+    border: none;
+}
+
+.day, .low { 
+opacity: .6;
+}
+
+.daily-icon { 
+    margin-top: 12px;
+}
+.weather { 
+    margin-top: 12px;
+}
+
+
