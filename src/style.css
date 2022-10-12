@@ -38,7 +38,7 @@ body {
 }
 
 .button { 
-    border: 1px solid #CDD3D5;
+    border: 2px solid #CDD3D5;
     color: #CDD3D5;
     background-color: transparent;
     border-radius: 12px;
@@ -75,6 +75,8 @@ body {
     border-radius: 99px;
     width: 28px;
     padding: 4px;
+    text-decoration: none;
+    cursor:default;
 }
 
 .active { 
