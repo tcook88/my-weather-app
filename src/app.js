@@ -45,6 +45,40 @@ function showTemp(response) {
     currentIcon.setAttribute("alt", response.data.weather[0].description);
     currentHigh.innerHTML = Math.round(response.data.main.temp_max);
     currentLow.innerHTML = Math.round(response.data.main.temp_min);
+
+    if (response.data.weather[0].icon === "01d") { 
+        currentIcon.setAttribute("src", "img/sun.png")
+    } if (response.data.weather[0].icon === "01n") { 
+        currentIcon.setAttribute("src", "img/night.png")
+    } if (response.data.weather[0].icon === "02d") { 
+        currentIcon.setAttribute("src", "img/partly-cloudy.png")
+    } if (response.data.weather[0].icon === "02n") { 
+        currentIcon.setAttribute("src", "img/partly-cloudy-night.png")
+    } if (response.data.weather[0].icon === "03d") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "03n") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "04d") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "04n") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "50d") { 
+        currentIcon.setAttribute("src", "img/fog.png")
+    } if (response.data.weather[0].icon === "13d") { 
+        currentIcon.setAttribute("src", "img/snowy.png")
+    } if (response.data.weather[0].icon === "13n") { 
+        currentIcon.setAttribute("src", "img/snowy.png")
+    } if (response.data.weather[0].icon === "09d") { 
+        currentIcon.setAttribute("src", "img/rainy.png")
+    } if (response.data.weather[0].icon === "10d") { 
+        currentIcon.setAttribute("src", "img/rain.png")
+    } if (response.data.weather[0].icon === "11d") { 
+        currentIcon.setAttribute("src", "img/storm.png")
+    } if (response.data.weather[0].icon === "10n") { 
+        currentIcon.setAttribute("src", "img/rain.png")
+    }
+
+    console.log(response.data);
 }
 
 function search(city) {
@@ -88,6 +122,39 @@ function showLocationTemperature(response) {
     currentHigh.innerHTML = Math.round(response.data.main.temp_max);
     currentLow.innerHTML = Math.round(response.data.main.temp_min);
     cityInput.value = response.data.name;
+
+    if (response.data.weather[0].icon === "01d") { 
+        currentIcon.setAttribute("src", "img/sun.png")
+    } if (response.data.weather[0].icon === "01n") { 
+        currentIcon.setAttribute("src", "img/night.png")
+    } if (response.data.weather[0].icon === "02d") { 
+        currentIcon.setAttribute("src", "img/partly-cloudy.png")
+    } if (response.data.weather[0].icon === "02n") { 
+        currentIcon.setAttribute("src", "img/partly-cloudy-night.png")
+    } if (response.data.weather[0].icon === "03d") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "03n") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "04d") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "04n") { 
+        currentIcon.setAttribute("src", "img/cloud.png")
+    } if (response.data.weather[0].icon === "50d") { 
+        currentIcon.setAttribute("src", "img/fog.png")
+    } if (response.data.weather[0].icon === "13d") { 
+        currentIcon.setAttribute("src", "img/snowy.png")
+    } if (response.data.weather[0].icon === "13n") { 
+        currentIcon.setAttribute("src", "img/snowy.png")
+    } if (response.data.weather[0].icon === "09d") { 
+        currentIcon.setAttribute("src", "img/rainy.png")
+    } if (response.data.weather[0].icon === "10d") { 
+        currentIcon.setAttribute("src", "img/rain.png")
+    } if (response.data.weather[0].icon === "11d") { 
+        currentIcon.setAttribute("src", "img/storm.png")
+    } if (response.data.weather[0].icon === "10n") { 
+        currentIcon.setAttribute("src", "img/rain.png")
+    }
+
 }
 
 
