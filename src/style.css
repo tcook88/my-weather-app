@@ -2,13 +2,13 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 .weather-wrapper { 
-    border: 2px solid #8EA9A0;
+    border: 2px solid #CDD3D5;
     border-radius: 16px;
     padding: 40px 60px;
     margin-left: auto;
     margin-right: auto;
     max-width: 980px;
-    background-color: #FAF8EB;
+    background-color: white;
 }
 
 
@@ -20,7 +20,7 @@ body {
 }
 
 .input-wrapper { 
-    border: 2px solid #8EA9A0;
+    border: 2px solid #CDD3D5;
     border-radius: 16px;
     padding: 4px;
     display: flex;
@@ -38,9 +38,9 @@ body {
 }
 
 .button { 
-    border: none;
-    color: white;
-    background-color: #8EA9A0;
+    border: 1px solid #CDD3D5;
+    color: #CDD3D5;
+    background-color: transparent;
     border-radius: 12px;
     padding: 4px 12px;
 }
@@ -53,7 +53,7 @@ body {
 
 .fa-location-arrow { 
     font-size: 20px;
-    color: #8EA9A0;
+    color: #CDD3D5;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -63,7 +63,7 @@ body {
     display: flex;
     border: none;
     border-radius: 99px;
-    background-color: #E7E0D3;
+    background-color: #CDD3D5;
     padding: 4px 8px;
     width: 64px;
 }
@@ -78,7 +78,7 @@ body {
 }
 
 .active { 
-    background-color: #FAF8EB;
+    background-color: white;
 }
 
 .current-weather-icon { 
@@ -97,12 +97,9 @@ h1 {
 }
 
 .text { 
-    color: #8A8560;
-}
-
-.text-primary { 
     color: #333;
 }
+
 
 .grid { 
     margin-top: 40px;
