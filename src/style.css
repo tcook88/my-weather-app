@@ -2,7 +2,7 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 .weather-wrapper { 
-    border: 2px solid #CDD3D5;
+    border: 2px solid #7f8485;
     border-radius: 16px;
     padding: 40px 60px;
     margin-left: auto;
@@ -20,7 +20,7 @@ body {
 }
 
 .input-wrapper { 
-    border: 2px solid #CDD3D5;
+    border: 2px solid #7f8485;
     border-radius: 16px;
     padding: 4px;
     display: flex;
@@ -35,11 +35,13 @@ body {
 
 .search-input:focus {
     outline: none;
+    background-color: white;
 }
 
 .button { 
-    border: 2px solid #CDD3D5;
-    color: #CDD3D5;
+    font-family: 'Raleway', sans-serif;
+    border: 2px solid #7f8485;
+    color: #7f8485;
     background-color: transparent;
     border-radius: 12px;
     padding: 4px 12px;
@@ -53,34 +55,10 @@ body {
 
 .fa-location-arrow { 
     font-size: 20px;
-    color: #CDD3D5;
+    color: #7f8485;
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-.toggle { 
-    display: flex;
-    border: none;
-    border-radius: 99px;
-    background-color: #CDD3D5;
-    padding: 4px 8px;
-    width: 64px;
-}
-
-.cel-select, .fah-select { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 99px;
-    width: 28px;
-    padding: 4px;
-    text-decoration: none;
-    cursor:default;
-}
-
-.active { 
-    background-color: white;
 }
 
 .current-weather-icon { 
@@ -96,6 +74,15 @@ h1 {
     font-size: 64px;
     color: #333;
     margin-right: 16px;
+}
+
+.f { 
+    line-height: 64px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    top: -36px;
 }
 
 .text { 
@@ -148,7 +135,7 @@ li:first-letter {
 }
 
 .col-daily { 
-    border-right: 2px solid #bcbcbc;
+    border-right: 2px solid rgb(127, 132, 133, 0.5);
     text-align: center;
     
 }
