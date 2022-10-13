@@ -22,26 +22,108 @@ function formatDate(timestamp) {
     return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function formatDay(timestamp) { 
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = [
+        "Sun",
+        "Mon",
+        "Tue", 
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"];
+
+    return days[day];
+}
+
+function displayForecast(response) {
+    let forecast = response.data.daily;
+
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = "";
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-    days.forEach(function(day){ 
+
+    
+    forecast.forEach(function(forecastDay, index) { 
+        let src = `http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}.png`;
+        if (forecastDay.weather[0].icon === "01d") { 
+            src = "img/sun.png";
+        } 
+        if (forecastDay.weather[0].icon === "01n") { 
+            src = "img/night.png";
+        } 
+        if (forecastDay.weather[0].icon === "02d") { 
+            src = "img/partly-cloudy.png";
+        } 
+        if (forecastDay.weather[0].icon === "02n") { 
+            src = "img/partly-cloudy-night.png";
+        } 
+        if (forecastDay.weather[0].icon === "03d") { 
+            src = "img/cloud.png";
+        } 
+        if (forecastDay.weather[0].icon === "03n") { 
+            src = "img/cloud.png";
+        } 
+        if (forecastDay.weather[0].icon === "04d") { 
+            src = "img/cloud.png";
+        } 
+        if (forecastDay.weather[0].icon === "04n") { 
+            src = "img/cloud.png";
+        } 
+        if (forecastDay.weather[0].icon === "50d") { 
+            src = "img/fog.png";
+        } 
+        if (forecastDay.weather[0].icon === "13d") { 
+            src = "img/snowy.png";
+        } 
+        if (forecastDay.weather[0].icon === "13n") { 
+            src = "img/snowy.png";
+        } 
+        if (forecastDay.weather[0].icon === "09d") { 
+            src = "img/rainy.png";
+        } 
+        if (forecastDay.weather[0].icon === "10d") { 
+            src = "img/rain.png";
+        } 
+        if (forecastDay.weather[0].icon === "11d") { 
+            src = "img/storm.png";
+        } 
+        if (forecastDay.weather[0].icon === "10n") { 
+            src = "img/rain.png";
+        } 
+        if (forecastDay.weather[0].icon === "09n") { 
+            src = "img/rainy.png";
+        }
+        if (index < 5) {
         forecastHTML = 
     forecastHTML + `
     <div class="col-daily">
-                        <div class="day">${day}</div>
-                        <div class="daily-icon">🌤</div>
-                        <div class="weather"><span class="high">70°</span> <span class="low">54°</span></div>
+                        <div class="day">${formatDay(forecastDay.dt)}</div>
+                        <div class="daily-icon"><img 
+                        src="${src}"
+                        alt="${forecastDay.weather[0].description}" 
+                        width="42"
+                        id="icon-daily"
+                        />
+                        </div>
+                        <div class="weather"><span class="high">${Math.round(forecastDay.temp.max)}°</span> <span class="low">${Math.round(forecastDay.temp.min)}°</span></div>
                     </div>
-                    `;
+                    `;}
+
     });
     
  
    forecastElement.innerHTML = forecastHTML;
+
 }
 
+function getForecast(coordinates) { 
+    let unit = "imperial";
+    let apiKey = "281450ec88936f4fa8ee9864682b49a0";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`
+    axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemp(response) {
     let currentTemp = document.querySelector("#current-temperature");
@@ -97,7 +179,11 @@ function showTemp(response) {
         currentIcon.setAttribute("src", "img/storm.png")
     } if (response.data.weather[0].icon === "10n") { 
         currentIcon.setAttribute("src", "img/rain.png")
+    } if (response.data.weather[0].icon === "09n") { 
+        currentIcon.setAttribute("src", "img/rainy.png")
     }
+
+    getForecast(response.data.coord);
 
 }
 
@@ -173,7 +259,11 @@ function showLocationTemperature(response) {
         currentIcon.setAttribute("src", "img/storm.png")
     } if (response.data.weather[0].icon === "10n") { 
         currentIcon.setAttribute("src", "img/rain.png")
+    } if (response.data.weather[0].icon === "09n") { 
+        currentIcon.setAttribute("src", "img/rainy.png")
     }
+
+    getForecast(response.data.coord);
 
 }
 
@@ -226,4 +316,4 @@ function getLocation(event) {
     fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
     search("New York");
-    displayForecast();
+  

@@ -141,7 +141,7 @@ li:first-letter {
 
 
 .forecast-row { 
-    margin-top: 32px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
     color: #333;
